@@ -1,0 +1,268 @@
+﻿/*all gradient, change to rgba */
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url('Roboto/Roboto-Medium.ttf');
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto-Medium','Microsoft Sans Serif',sans-serif, Arial, Helvetica;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto-Medium','Microsoft Sans Serif',sans-serif, Arial, Helvetica;
+}
+
+body {
+    background: #171717;
+    background-image: linear-gradient(to bottom, #111,#171717);
+    position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    font-family: 'Roboto-Medium','Microsoft Sans Serif',sans-serif, Arial, Helvetica;
+}
+
+.card {
+    border-radius: 0;
+    border: none;
+    text-decoration: none;
+}
+
+.button {
+    border-radius: 0;
+    border: none;
+    text-decoration: none;
+}
+
+.container {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+nav {
+    background: #171717;
+    background-image: linear-gradient(to bottom,#111,#5d646b);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.container-lg {
+    overflow: inherit;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+
+    .container-lg #container-banner {
+        background: #171717;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-frame {
+        background: #171717;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-inner {
+        background: #171717;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-outer {
+        background: #171717;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-outer-header {
+        background-image: linear-gradient(to right,#00000000,#5d646b,#00000000);
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-outer-footer {
+        background-image: linear-gradient(to right,#00000000,#5d646b,#00000000);
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-outer-banner {
+        background-image: linear-gradient(to right,#00000000,#5d646b,#00000000);
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-slide {
+        background-image: linear-gradient(to right,#111,#171717,#111);
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-slide-item {
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .container-lg #container-footer {
+        background: #171717;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+#container-body {
+    background: #171717;
+    background-image: linear-gradient(to top, #171717,#5d646b 50%);
+    box-shadow: none;
+}
+
+#container-footer {
+    background-image: linear-gradient(to bottom, white,#171717);
+}
+
+.canvas {
+    margin: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    overflow-block: auto;
+    overflow-inline: auto;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+div #animation-color {
+    width: inherit;
+    height: 5px;
+    background-image: linear-gradient(to right,#00000000,#2d9fa0,#00000000);
+    position: center;
+    animation-name: color;
+    animation-duration: 6s;
+    animation-delay: -3s;
+    animation-iteration-count: 100;
+}
+
+div #no-animation-white {
+    width: inherit;
+    background-image: linear-gradient(to right,#00000000,#ffffff,#00000000);
+}
+
+div #no-animation-color {
+    width: inherit;
+    height: 5px;
+    background-image: linear-gradient(to right,#00000000,#2d9fa0,#00000000);
+}
+
+div #no-animation-dark {
+    background-image: linear-gradient(to right,#00000000,#2d9fa0,#00000000);
+}
+
+div #no-animation-black {
+    background-image: linear-gradient(to right,#171717,#00000000,#171717);
+}
+
+div #no-animation-dark-table {
+    background-image: linear-gradient(to top,#212529,#2d9fa0,#212529);
+}
+
+div #no-animation-black-table {
+    background-image: linear-gradient(to top,#212529,#171717,#212529);
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+}
+
+.center-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bottom-center {
+    position: absolute;
+    bottom: 0px;
+    left: 8px;
+    right: 8px;
+}
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes color {
+    0% {
+        right: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-image: linear-gradient(to right,#00000000,#2d9fa0 60%,#00000000);
+        right: 0px;
+        top: 0px;
+    }
+
+    50% {
+        background-image: linear-gradient(to right,#00000000,#2d9fa0 30%,#00000000);
+        right: 200px;
+        top: 0px;
+    }
+
+    75% {
+        background-image: linear-gradient(to left,#00000000,#2d9fa0 60%,#00000000);
+        left: 0px;
+        top: 0px;
+    }
+
+    100% {
+        background-image: linear-gradient(to left,#00000000,#2d9fa0 30%,#00000000);
+        left: 200px;
+        top: 0px;
+    }
+}

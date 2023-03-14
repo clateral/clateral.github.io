@@ -1,0 +1,125 @@
+﻿<!-- change project type and implement c# functions thereafter -->
+<!-- tags, mail, databases, check hosting requirements -->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" more="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>welcome to clateral.com</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/src/search.js"></script>
+</head>
+<body>
+    <div class="container-lg mt-2 mb-2 p-0 pb-5" id="container-body">
+        <nav class="navbar navbar-expand-sm navbar-dark sticky-top align-middle text-center m-0" data-bs-theme="dark" id="navbar-frame">
+            <div class="container-lg p-0 m-0 pt-2">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/clateral_Logo_Resized.png" alt="Logo" style="width: 40px;margin-left:4px">
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" style="border: none; box-shadow: none; border-radius: 0; margin-right: 4px">
+                    <span style="font-size:16px;margin-right:4px"> Menu</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle" href="/shared" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none;box-shadow: none; border-radius: 0; text-decoration:none">
+                                Shared
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/shared/releases">Releases</a></li>
+                                <li><a class="dropdown-item" href="/shared/videos">Videos</a></li>
+                                <li><a class="dropdown-item" href="/shared/helpers">Helpers</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle active" href="/trading" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                Trading
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/trading/blog">Blog</a></li>
+                                <li><a class="dropdown-item" href="/trading/portfolio">Portfolio</a></li>
+                                <li><a class="dropdown-item" href="/trading/theory">Theory</a></li>
+                                <li><a class="dropdown-item active" href="/trading/news">News</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle" href="/about" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                About
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/about/presentation">Presentation</a></li>
+                                <li><a class="dropdown-item" href="/about/collaboration">Collaboration</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle" href="/other" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                Other
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/other/terms-conditions">Terms & Conditions</a></li>
+                                <li><a class="dropdown-item" href="/other/privacy-policy">Privacy Policy</a></li>
+                                <li><a class="dropdown-item" href="/other/cookies-policy">Cookies Policy</a></li>
+                                <li><a class="dropdown-item" href="/other/disclaimer">Disclaimer</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex p-1 m-1 pt-0 pb-0 justify-content-center align-middle" role="search" style="margin-right: 8px;border-radius: 0; background:#111; border:none; box-shadow: none;">
+                        <input class="form-control text-white align-middle" type="text" placeholder="Search" aria-label="Search" id="searchInput" onkeyup="search()" style="border-radius: 0; background:#111; border:none; box-shadow: none;">
+                        <div style="border-radius: 0; background: #111; border:none; box-shadow: none">
+                            <span class="input-group-text" id="search-addon" style="border-radius: 0; background: #111; border:none; box-shadow: none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search align-middle" viewBox="0 0 16 16" style="margin: 4px; fill:#6c757d">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="container-lg p-1 pt-0 pb-0 m-0">
+            <div class="container-lg p-0 text-white" id="container-banner" style="min-height:200px">
+                <div id="no-animation-color"></div>
+                <div class="container position-relative p-5 text-center text-white justify-content-center align-middle">
+                    <img src="/images/clateral_Logo_Resized.png" alt="clateral Logo" style="width:100px; float:right;overflow:hidden" class="img-responsive align-middle">
+                    <div class="position-absolute top-50 start-50 translate-middle text-center align-middle text-center pt-4" style="overflow:hidden">
+                        <h3>welcome to clateral.com</h3>
+                        <blockquote class="blockquote">
+                            <footer class="blockquote-footer pt-3">this website is under construction</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="container-lg p-0 text-white" id="container-inner">
+                <div id="no-animation-color"></div>
+                <div class="container-lg p-4" style="min-height:1600px">
+                    <!-- content -->
+                    <section>
+                    </section>
+                    <!-- content -->
+                </div>
+                <div id="no-animation-color"></div>
+            </div>
+            <div class="container-lg p-0 pt-4 position-relative text-center text-white justify-content-center align-middle" id="container-footer" style="min-height:200px">
+                <blockquote class="blockquote p-5">
+                    <small class="card-text text-muted" style="font-size:12px;"> copyright @ 2023 <a href="https://www.clateral.com" target="_blank" style="color: rgba(50, 200, 200, 1);text-decoration:none">clateral.com</a></small>
+                </blockquote>
+            </div>
+            <div id="no-animation-color"></div>
+        </div>
+    </div>
+</body>
+</html>

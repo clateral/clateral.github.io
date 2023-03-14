@@ -1,0 +1,1029 @@
+﻿<!-- change project type and implement c# functions thereafter -->
+<!-- tags, mail, databases, check hosting requirements -->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" more="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>welcome to clateral.com</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/src/search.js"></script>
+</head>
+<body>
+    <div class="container-lg mt-2 mb-2 p-0 pb-5" id="container-body">
+        <nav class="navbar navbar-expand-sm navbar-dark sticky-top align-middle text-center m-0" data-bs-theme="dark" id="navbar-frame">
+            <div class="container-lg p-0 m-0 pt-2">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/clateral_Logo_Resized.png" alt="Logo" style="width: 40px;margin-left:4px">
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" style="border: none; box-shadow: none; border-radius: 0; margin-right: 4px">
+                    <span style="font-size:16px;margin-right:4px"> Menu</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle" href="/shared" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none;box-shadow: none; border-radius: 0; text-decoration:none">
+                                Shared
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/shared/releases">Releases</a></li>
+                                <li><a class="dropdown-item" href="/shared/videos">Videos</a></li>
+                                <li><a class="dropdown-item" href="/shared/helpers">Helpers</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle" href="/trading" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                Trading
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/trading/blog">Blog</a></li>
+                                <li><a class="dropdown-item" href="/trading/portfolio">Portfolio</a></li>
+                                <li><a class="dropdown-item" href="/trading/theory">Theory</a></li>
+                                <li><a class="dropdown-item" href="/trading/news">News</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle active" href="/about" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                About
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item active" href="/about/presentation">Presentation</a></li>
+                                <li><a class="dropdown-item" href="/about/collaboration">Collaboration</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown m-0 p-0">
+                            <a class="nav-link dropdown-toggle" href="/other" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                Other
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark m-0 p-0" style="border: none; box-shadow: none; border-radius: 0; text-decoration:none">
+                                <li><a class="dropdown-item" href="/other/terms-conditions">Terms & Conditions</a></li>
+                                <li><a class="dropdown-item" href="/other/privacy-policy">Privacy Policy</a></li>
+                                <li><a class="dropdown-item" href="/other/cookies-policy">Cookies Policy</a></li>
+                                <li><a class="dropdown-item" href="/other/disclaimer">Disclaimer</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex p-1 m-1 pt-0 pb-0 justify-content-center align-middle" role="search" style="margin-right: 8px;border-radius: 0; background:#111; border:none; box-shadow: none;">
+                        <input class="form-control text-white align-middle" type="text" placeholder="Search" aria-label="Search" id="searchInput" onkeyup="search()" style="border-radius: 0; background:#111; border:none; box-shadow: none;">
+                        <div style="border-radius: 0; background: #111; border:none; box-shadow: none">
+                            <span class="input-group-text" id="search-addon" style="border-radius: 0; background: #111; border:none; box-shadow: none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search align-middle" viewBox="0 0 16 16" style="margin: 4px; fill:#6c757d">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="container-lg p-1 pt-0 pb-0 m-0">
+            <div class="container-lg p-0 text-white" id="container-banner" style="min-height:200px">
+                <div id="no-animation-color"></div>
+                <div class="container position-relative p-5 text-center text-white justify-content-center align-middle">
+                    <img src="/images/clateral_Logo_Resized.png" alt="clateral Logo" style="width:100px; float:right;overflow:hidden" class="img-responsive align-middle">
+                    <div class="position-absolute top-50 start-50 translate-middle text-center align-middle text-center pt-4" style="overflow:hidden">
+                        <h3>welcome to clateral.com</h3>
+                        <blockquote class="blockquote">
+                            <footer class="blockquote-footer pt-3">learn more about Robert</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="container-lg p-0 text-white" id="container-inner">
+                <div id="no-animation-color"></div>
+                <div class="container-lg p-4" style="min-height:1600px">
+                    <!-- content -->
+                    <section id="searchArea">
+                        <div class="row row-cols-2">
+                            <div class="col">
+                                <div class="container-lg p-2 pt-3 bg-secondary text-white">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box m-2 mt-1" viewBox="0 0 16 16">
+                                            <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+                                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        </svg>
+                                    </span>
+                                    <span>Introduction</span>
+                                </div>
+                                <div class="container-lg p-1 m-0 bg-secondary text-white">
+                                    <div class="container-lg bg-dark" style="height:500px;overflow:hidden">
+                                        <ul class="list-group list-group-flush p-4 align-middle" style="list-style-type:square;overflow:hidden">
+                                            <li class="m-2 p-1">
+                                                Name: Robert
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Born: 1993
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Country: Sweden
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                City: Linköping
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Profession: System Developer
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Certification: Microsoft C#
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container-lg p-2 pt-3 bg-secondary text-white">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-4 m-2 mt-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM0 11.5A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
+                                        </svg>
+                                    </span>
+                                    <span>Qualities</span>
+                                </div>
+                                <div class="container-lg p-1 m-0 bg-secondary text-white">
+                                    <div class="container-lg bg-dark" style="height: 500px; overflow: hidden">
+                                        <ul class="list-group list-group-flush p-4 align-middle" style="list-style-type:square;overflow:hidden">
+                                            <li class="m-2 p-1">
+                                                Prioritizes right questions and provides key suggestion for improvement
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Considered reasonable and objective as person. Relates to colleagues and partners in a responsive and flexible manner.
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Perpetual learner. Willingness to observe significant details, test hypotheses and prove legitimacy in different theories
+                                            </li>
+                                            <li class="m-2 p-1">
+                                                Ability to solve complex problems. Analyzing to form a judgement and break problems into different constituents
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container-lg mt-4 p-2 pt-3 bg-secondary text-white">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data m-2 mt-1" viewBox="0 0 16 16">
+                                            <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                        </svg>
+
+                                    </span>
+                                    <span>Abilities</span>
+                                </div>
+                                <div class="container-lg p-1 m-0 bg-secondary text-white">
+                                    <div class="container bg-dark p-2">
+                                        <canvas id="myChart_1" class="p-2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container-lg mt-4 p-2 pt-3 bg-secondary text-white">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square m-2 mt-1" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                            <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                                        </svg>
+                                    </span>
+                                    <span>Evaluation</span>
+                                </div>
+                                <div class="container-lg p-1 m-0 bg-secondary text-white">
+                                    <div class="container bg-dark p-2">
+                                        <canvas id="myChart_2" class="p-2"></canvas>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-lg mt-4 p-2 pt-3 bg-secondary text-white">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe m-2 mt-1" viewBox="0 0 16 16">
+                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z" />
+                                </svg>
+                            </span>
+                            <span>Knowledge</span>
+                        </div>
+                        <div class="container-lg p-1 m-0 bg-secondary text-white">
+                            <div class="container-lg bg-dark p-2">
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        MICROSOFT
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        WINDOWS
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        C#
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        .NET
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        .NET EF CORE
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        ASP.NET
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        ASP.NET CORE
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        ASP.NET MVC
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        AZURE
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        SQL
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        LINQ
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        JAVASCRIPT
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        JQUERY
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        HTML
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        CSS
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        NODE.JS
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        BLAZOR
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        BOOTSTRAP
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        RRS
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        GIT
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        GITHUB
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        POWER AUTOMATE
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        POWER SHELL
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        ML.NET
+                                    </small>
+                                </button>
+                                <br />
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        AUTODESK AUTOCAD
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        TELE2 ROLLOUT
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        IFS CLOUD
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        FORDONSDATA
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        SALESFORCE
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        SPOTLIGHTDATA
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        IBM CLIENT
+                                    </small>
+                                </button>
+                                <button type="button" style="margin:4px;border-radius:0;border-color:#373b3e;color:white" class="btn btn-dark text-white">
+                                    <small>
+                                        TGW TECHNOLOGY
+                                    </small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="container-lg mt-4 p-0 m-0 bg-secondary">
+                            <div class="container-lg p-2 pt-3 pb-0 bg-secondary text-white">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-square m-2 mt-1" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                        <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+                                    </svg>
+                                </span>
+                                <span>Experience</span>
+                            </div>
+                            <div class="container-lg p-1 pt-3 m-0 bg-secondary text-white">
+                                <table class="table table-responsive text-white align-middle" id="myTable">
+                                    <thead class="table align-middle text-white" style="background-color: #171717; border-color: #171717;">
+                                        <tr>
+                                            <td>
+                                                <p><span>Work</span></p>
+                                            </td>
+                                            <td>
+                                                <p><span>Year</span></p>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <p><span>Summary</span></p>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-dark align-middle">
+                                        <tr>
+                                            <td>
+                                                <span>Procurement Advisor - Visma Commerce </span>
+                                            </td>
+                                            <td>
+                                                <span>2020-2020</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion1" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse1" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+                                                    <div id="collapse1" class="collapse" data-bs-parent="#accordion1">
+                                                        <span>I worked at Visma Commerce, which is a leading provider of business-critical software. The job included procurement laws for suppliers, purchasing processes, procurement documents, public and framework agreements. It was an informative and developing work with respect to the turbulent period during the covid pandemic. Many valuable insights were accumulated which will simultaneously permeate my future work.</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Purchasing Manager - Scanfil Group </span>
+                                            </td>
+                                            <td>
+                                                <span>2019-2020</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion2" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse2" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+
+                                                    <div id="collapse2" class="collapse" data-bs-parent="#accordion2">
+                                                        <span>The role required a great commitment and an analytical ability for logistics. The work varied in the form of both strategic, tactical and operational work. My area of responsibility included evaluation, development and follow up of our foreign supplier collaborations. I created and maintained these relationships through clear processes and working methods. This enabled avoidance of previous delivery delays and price deviations. I compiled, analyzed and evaluated various data through Excel integrated with business system IFS. I was part of a small team working with optimizing inventory turnover rate. Which we did successfully. Communication where mainly in English both verbally and in writing.</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Project Manager - Tele2 Sweden </span>
+                                            </td>
+                                            <td>
+                                                <span>2018-2019</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion3" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse3" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+                                                    <div id="collapse3" class="collapse" data-bs-parent="#accordion3">
+                                                        <span>I have worked as Project Manager in the telecom industry. There I worked in team managing the mobile infrastructure, provided quality assurance within contracts, delegated tasks to our Site Acquistioners. Handling external tenant requests. Planning the infrastructure of each sites placement of tenant equipment. The work required a precise and calculated approach, which suits me and my technical interest very well. I did plenty of work with their migration to cloud and provided instruction documentation for response to placement request, which was very appreciated from their head-office.</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Account Manager - Bravura Sweden</span>
+                                            </td>
+                                            <td>
+                                                <span>2017-2018</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion4" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse4" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+                                                    <div id="collapse4" class="collapse" data-bs-parent="#accordion4">
+                                                        <span>Bravura delivers nationwide recruitment and personnel solutions. In the role as Account Manager, my work varied. Among other things, I was responsible for creating and managing customer relationships and ensuring that the right candidates were recruited. I found a successful working method that helped me achieve my goal of improving the recruitment process by being responsive and committed to the customers needs and demands.</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Service &amp; Sales Advisor - BMW ProAuto</span>
+                                            </td>
+                                            <td>
+                                                <span>2016-2017</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion5" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse5" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+                                                    <div id="collapse5" class="collapse" data-bs-parent="#accordion5">
+                                                        <span>My second job within the BMW Group, which is one of the worlds leading car manufacturers. I worked as an service and sales advisor, pending between various departments. Great focus was prioritized on ensuring that customers were always satisfied and received the right support. I did plenty back-office work such as order processing, warranty matters and calls. The company has taught me that success is based on long-term thinking combined with responsible decision-making.</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Insurance Advisor - Trygg Hansa</span>
+                                            </td>
+                                            <td>
+                                                <span>2014-2015</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion6" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse6" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+                                                    <div id="collapse6" class="collapse" data-bs-parent="#accordion6">
+                                                        <span>I decided to take this path in order to land a sales job within BMW Group. Trygg Hansa is a fantastic insurance company where I initially took part of their learning-program to learn everything about their insurance portfolio. This gave me an optimal foundation which enabled me to consult with clients in a manner that was suitable or proper. Being surrounded by colleagues with very high competence is something that I still consider inspiring. I received an award for being the top salesperson in Sweden during my first month. </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Host &amp; Admin - BMW AutoPartner</span>
+                                            </td>
+                                            <td>
+                                                <span>2012-2014</span>
+                                            </td>
+                                            <td>
+                                                <div id="accordion7" class="card bg-dark m-2 p-1" style="border:none">
+                                                    <a class="bg-dark text-center align-middle" data-bs-toggle="collapse" href="#collapse7" style="text-decoration: none; color: rgba(50, 200, 200,1);">
+                                                        <span> Read More &#8250;</span>
+                                                    </a>
+                                                    <div id="collapse7" class="collapse" data-bs-parent="#accordion7">
+                                                        <span>My first job within the BMW Group, working as an host. I where responsible to ensure that customers where introduced and taken cared off as they entered the facility. After opening dialog, I directed the customer to the appropriate car model, told all conceivable information and facts about the cars unique features and thereafter offered an test drive. This is an important and critical part of the sales process since the initial impression usually determines if the customer buys the car in the end. In sales support, I also helped the established sales personal providing prices to customers and I always tried to find the best solution.</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <thead class="table align-middle text-white" style="background-color: #171717; border-color: #171717;">
+                                        <tr>
+                                            <td>
+                                                <p><span>Education</span></p>
+                                            </td>
+                                            <td>
+                                                <p><span>Year</span></p>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <p><span>Reference</span></p>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-dark align-middle">
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft C# Backend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft .NET Backend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft ASP.NET Backend Development Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft Azure Backend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft SQL Server Backend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft Unit Testing Backend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft Entity Framework Backend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>JavaScript, JQuery, HTML &amp; CSS Frontend Development Lexicon Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Visma Commerce - Procurement Laws &amp; Framework Agreements Education</span>
+                                            </td>
+                                            <td>
+                                                <span>2020-2020</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>BFG Sales &amp; Marketing College - Business Laws &amp; Negotiations Education</span>
+                                            </td>
+                                            <td>
+                                                <span>2019-2019</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft Excel Backend Development Mölk Program</span>
+                                            </td>
+                                            <td>
+                                                <span>2019-2019</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>EQP Business Education School </span>
+                                            </td>
+                                            <td>
+                                                <span>2017-2017</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Business &amp; Admin Education School (Scholarship) </span>
+                                            </td>
+                                            <td>
+                                                <span>2009-2011</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <thead class="table align-middle text-white" style="background-color: #171717; border-color: #171717;">
+                                        <tr>
+                                            <td>
+                                                <p><span>Self Education</span></p>
+                                            </td>
+                                            <td>
+                                                <p><span>Year</span></p>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <p><span>Reference</span></p>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-dark align-middle">
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft</span>
+                                            </td>
+                                            <td>
+                                                <span>1997-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card m-2 p-1 bg-dark text-center align-middle" style="text-decoration:none;border:none;">
+                                                    <a class="text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none;border:none;">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft C# Advanced Backend Development</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft C# Object Oriented Programming</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft C# Algorithmic Development</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft C# LINQ Language Integrated Query</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft C# Asynchronous/Synchronous Programming</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft PowerAutomate & PowerShell</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft Blazor & Node.js</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Microsoft ML.NET</span>
+                                            </td>
+                                            <td>
+                                                <span>2022-2023</span>
+                                            </td>
+                                            <td>
+                                                <div class="card bg-dark m-2 p-1 text-center align-middle" style="border:none">
+                                                    <a class="bg-dark text-center align-middle text-muted" target="_blank" href="https://learn.microsoft.com/en-us/docs/" style="text-decoration:none">
+                                                        <span> Learn More &#8250;</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- content -->
+
+
+                    <div class="container-lg mt-4 p-0 m-0 bg-secondary">
+                        <div class="container-lg p-2 pt-3 pb-0 bg-secondary text-white">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up m-2 mt-1" viewBox="0 0 16 16">
+                                    <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                </svg>
+                            </span>
+                            <span>Recommendation</span>
+                        </div>
+                        <div class="container-lg p-1 m-0 bg-secondary text-white">
+                            <div class="container-lg p-1 m-0 bg-dark text-white">
+                                <div class="container-lg p-1">
+                                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner text-center align-middle">
+                                            <div class="carousel-item active text-center align-middle">
+                                                <blockquote class="blockquote">
+                                                    <h5 class="m-2">"He has controlled the holding properties of our infrastructures in a very good way"</h5>
+                                                    <h6 class="m-2">The work has required great accuracy and technical understanding and he has proven these qualities</h6>
+                                                    <hr style="margin-left: 300px; margin-right: 300px">
+                                                    <h6 class="m-2">For the above reasons, we want to give our best recommendations</h6>
+                                                    <footer class="blockquote-footer m-1"><cite title="Source Title">Carin Djurén, Head of Radio & Mobile Infrastructure at Tele2 Sweden</cite></footer>
+                                                </blockquote>
+                                            </div>
+                                            <div class="carousel-item text-center align-middle">
+                                                <blockquote class="blockquote">
+                                                    <h5 class="m-2">"He is the talent who during his years delivered results beyond the ordinary"</h5>
+                                                    <h6 class="m-2">During his years he has grown as person and shown to be a good role model for future students</h6>
+                                                    <hr style="margin-left: 300px; margin-right: 300px">
+                                                    <h6 class="m-2">For the above reasons, we want to give our best recommendations</h6>
+                                                    <footer class="blockquote-footer m-1"><cite title="Source Title">Maria Anderssson & Hanna Sandberg at SBF Learning</cite></footer>
+                                                </blockquote>
+                                            </div>
+                                            <div class="carousel-item text-center align-middle">
+                                                <blockquote class="blockquote">
+                                                    <h5 class="m-2">"He is ambitious, driven, goal-oriented and capable to perform well under pressure"</h5>
+                                                    <h6 class="m-2">We consider him to be a valuable workmate with good ability to collaborate with different types of people</h6>
+                                                    <hr style="margin-left: 300px; margin-right: 300px">
+                                                    <h6 class="m-2"> For the above reasons, we want to give our best recommendations</h6>
+                                                    <footer class="blockquote-footer m-1"><cite title="Source Title">Martin Johansson, Head of Supply Chain & Operations at Scanfil</cite></footer>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-animation-color"></div>
+            </div>
+            <div class="container-lg p-0 pt-4 position-relative text-center text-white justify-content-center align-middle" id="container-footer" style="min-height:200px">
+                <blockquote class="blockquote p-5">
+                    <small class="card-text text-muted" style="font-size:12px;"> copyright @ 2023 <a href="https://www.clateral.com" target="_blank" style="color: rgba(50, 200, 200, 1);text-decoration:none">clateral.com</a></small>
+                </blockquote>
+            </div>
+            <div id="no-animation-color"></div>
+        </div>
+    </div>
+    <script>
+        var xValues = ["Backend", "Frontend", "Fullstack", "Algorithms"];
+        var yValues = [75, 75, 75, 75];
+        var barColors = [
+            "rgba(50, 200, 200,0.75)",
+            "rgba(50, 200, 200,0.75)",
+            "rgba(50, 200, 200,0.75)",
+            "rgba(50, 200, 200,0.75)",
+        ];
+        new Chart("myChart_1", {
+            type: "horizontalBar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    xAxes: [{ ticks: { min: 0, max: 100 } }]
+
+                }
+            }
+        });
+    </script>
+    <script>
+        var xValues = ["Analyzing", "Evaluating", "Implementing", "Quantifying"];
+        var yValues = [75, 75, 75, 75, 75];
+        var barColors = [
+            "rgba(50, 200, 200,0.75)",
+            "rgba(50, 200, 200,0.75)",
+            "rgba(50, 200, 200,0.75)",
+            "rgba(50, 200, 200,0.75)",
+        ];
+        new Chart("myChart_2", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: false
+                }
+            }
+        });
+    </script>
+</body>
+</html>
